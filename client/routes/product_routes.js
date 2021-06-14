@@ -18,10 +18,22 @@ router.get('/api/v1/products', (req, res) => {
 })
 
 
-router.get('/api/v1/product', (req, res) => {
+router.get('/api/v1/product/:id', (req, res) => {
   // Send back the `productDetails` object corresponding to
   // the passed in `id` query parameter.
+  
+  // Get the correct id from the params
+  const id = req.params.id
+  let showOne
 
+  const data = JSON.parse(fs.readFileSync('data-details.json'))
+  for (const [key, value] of Object.entries(data)) {
+    if (key === id) {
+      showOne = [key, value]
+    }
+  }
+  res.send(showOne)
+  res.end( data )
 })
 
 
