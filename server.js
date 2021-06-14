@@ -1,18 +1,34 @@
+// require express
 const express = require("express")
+// require cors
 const cors = require("cors")
-const products = require("./data-prices.json")
-const productDetails = require("./data-details.json")
 
+// require route file
+const productRoutes = require('./client/routes/product_routes.js')
+
+// require middleware
+const requestLogger = require('./lib/requestLogger')
+
+// define the port
 const PORT = 5000
+
 const app = express()
 
-app.get("/api/v1/products", cors(), (req, res) => {
-  // Send back the `products` object.
+// set CORS headers
+app.use(cors({ origin: `http://localhost:${PORT}` }))
+
+// // 'express.json' middleware to parse JSON requests into JS objects
+app.use(express.json())
+
+// use request logger to log each request as it comes in (for debugging purposes )
+app.use(requestLogger)
+
+// register route files
+app.use(productRoutes)
+
+// run API on port 5000
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`)
 })
 
-app.get("/api/v1/product", cors(), (req, res) => {
-  // Send back the `productDetails` object corresponding to
-  // the passed in `id` query parameter.
-})
-
-app.listen(PORT, () => `Server running on port ${PORT}`)
+module.exports = app
