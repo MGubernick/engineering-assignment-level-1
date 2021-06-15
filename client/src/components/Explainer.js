@@ -109,7 +109,7 @@ function Explainer() {
         to add more, we would suggest the following:
       </p>
       <ul>
-        <li>Use routes for the list->detail pattern</li>
+        <li>Use routes for the list-detail pattern</li>
         <li>Use a modal for the detail view</li>
         <li>Use Material UI's Card component for the list view items</li>
         <li>Add unit (or smoke) tests</li>

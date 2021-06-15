@@ -10,12 +10,15 @@ const productRoutes = require('./client/routes/product_routes.js')
 const requestLogger = require('./lib/requestLogger')
 
 // define the port
-const PORT = 5000
+const serverDevPort = 5000
+const clientDevPort = 3000
 
 const app = express()
 
 // set CORS headers
-app.use(cors({ origin: `http://localhost:${PORT}` }))
+app.use(cors({ origin: `http://localhost:${clientDevPort}` }))
+
+const port = serverDevPort
 
 // // 'express.json' middleware to parse JSON requests into JS objects
 app.use(express.json())
@@ -27,8 +30,8 @@ app.use(requestLogger)
 app.use(productRoutes)
 
 // run API on port 5000
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`)
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`)
 })
 
 module.exports = app
