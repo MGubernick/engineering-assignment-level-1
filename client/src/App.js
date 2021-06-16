@@ -1,3 +1,5 @@
+// import react along with Component and Fragment 
+// using Fragment as a cleaner display than a div in the return
 import React, { Component, Fragment } from 'react'
 import { Route } from 'react-router-dom'
 
@@ -6,6 +8,8 @@ import Home from './pages/Home'
 
 // import plan components
 import Show from './components/Show/show'
+
+// import Layout component for consistency
 import { Layout } from './components/Layout'
 
 

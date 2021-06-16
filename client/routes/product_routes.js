@@ -1,10 +1,12 @@
 const express = require('express')
+
+// require file system so that I can utilize readFileSync to read the data
 const fs = require('fs')
 
 // creating the a router for modular code
 const router = express.Router()
 
-// data sets (hard coded in data-prices.json & data-details.json)
+// data sets (hard coded in data-prices.json & data-details.json) - might not need if using fs
 // const products = require('../../data-prices.json')
 // const productDetails = require('../../data-details.json')
 

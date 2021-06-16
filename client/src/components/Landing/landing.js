@@ -1,7 +1,12 @@
 import React, { Component } from 'react'
+
+// import withRouter so that I have access to the history prop
 import { withRouter } from 'react-router-dom'
+
+// import Card component from react-bootstrap
 import Card from 'react-bootstrap/Card'
 
+// import api call for indexing products
 import { indexProducts } from './../../api/products'
 
 class LandingPage extends Component {
@@ -13,6 +18,7 @@ class LandingPage extends Component {
     }
   }
 
+  // function to handle clicking on a plan -> show the details
   handleSearchOne = (id, event) => {
     const { history } = this.props
 
@@ -20,8 +26,7 @@ class LandingPage extends Component {
   }
 
   componentDidMount () {
-    // const { products } = this.state
-
+    // hit API for all products
     indexProducts()
       .then(res => {
         // console.log('this is res:', res)
@@ -38,6 +43,7 @@ class LandingPage extends Component {
     const { products } = this.state
     // console.log('this is products at render:', products)
 
+    // if there are no products returned from API - show 'Loading...'
     if (!products) {
       return (
         <div>
@@ -46,6 +52,7 @@ class LandingPage extends Component {
       )
     }
 
+    // map through the products arr and create a Card for each to display information returned
     productJsx = products.map(plan => (
       <Card key={plan.id}
         onClick={(event) => {
@@ -55,6 +62,7 @@ class LandingPage extends Component {
         className='index-bg style-card' style={{ alignItems: 'center', backgroundColor: '#f6f6f6', border: '1px solid', borderRadius: '5px', boxShadow: '10px 11px 8px -5px #414141', display: 'flex', height: '250px', margin: '30px', padding: '30px 80px 80px 80px', width: '300px' }}>
         <Card.Body>
           <Card.Title style={{ alignItems: 'center', display: 'flex', fontSize: '30px', fontFamily: 'cursive', justifyContent: 'center', textTransform: 'capitalize' }}>{plan.id}</Card.Title>
+          {/* determine which plan the user is looking at and apply the correct image */}
           {plan.id === 'basic' ? <Card.Img variant="top" style={{ alignItems: 'center', display: 'flex', justifyContent: 'center', height: '90px', width: '150px' }} src={'https://imgur.com/k085ej4.png'} /> : null}
           {plan.id === 'intermediate' ? <Card.Img variant="top" style={{ alignItems: 'center', display: 'flex', justifyContent: 'center', height: '90px', width: '150px' }} src={'https://imgur.com/YlMbzRd.png'} /> : null}
           {plan.id === 'enterprise' ? <Card.Img variant="top" style={{ alignItems: 'center', display: 'flex', justifyContent: 'center', height: '90px', width: '150px' }} src={'https://imgur.com/iyql7MJ.png'} /> : null}
@@ -79,4 +87,3 @@ class LandingPage extends Component {
 }
 
 export default withRouter(LandingPage)
-// export default LandingPage

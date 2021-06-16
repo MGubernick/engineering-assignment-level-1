@@ -1,7 +1,8 @@
 // require express
-const express = require("express")
+const express = require('express')
+
 // require cors
-const cors = require("cors")
+const cors = require('cors')
 
 // require route file
 const productRoutes = require('./client/routes/product_routes.js')
@@ -15,12 +16,12 @@ const clientDevPort = 3000
 
 const app = express()
 
-// set CORS headers
+// set CORS header
 app.use(cors({ origin: `http://localhost:${clientDevPort}` }))
 
 const port = serverDevPort
 
-// // 'express.json' middleware to parse JSON requests into JS objects
+// 'express.json' middleware to parse JSON requests into JS objects
 app.use(express.json())
 
 // use request logger to log each request as it comes in (for debugging purposes )
