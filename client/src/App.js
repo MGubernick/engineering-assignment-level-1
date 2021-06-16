@@ -24,7 +24,7 @@ class App extends Component {
       <Fragment>
         <Layout>
           <main className="container">
-            <Route exact path='/api/v1/products' render={() => (
+            <Route exact path='/' render={() => (
               <Home />
             )} />
             <Route exact path='/api/v1/product/:id' render={() => (

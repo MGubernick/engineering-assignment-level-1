@@ -63,7 +63,7 @@ class OnePlan extends Component {
     // if back button is clicked and state is set to 'true' return to the landing page
     if (back) {
       return (
-        <Redirect to={'/api/v1/products'} />
+        <Redirect to={'/'} />
       )
     }
 
