@@ -51,8 +51,8 @@ class LandingPage extends Component {
         onClick={(event) => {
           this.handleSearchOne(plan.id, event)
         }}
-        border="primary"
-        className='index-bg style-card' style={{ alignItems: 'center', backgroundColor: '#f6f6f6', border: '1px solid black', borderRadius: '5px', boxShadow: '10px 11px 8px -5px #414141', display: 'flex', height: '250px', margin: '30px', padding: '80px', width: '300px' }}>
+        border="secondary"
+        className='index-bg style-card' style={{ alignItems: 'center', backgroundColor: '#f6f6f6', border: '1px solid', borderRadius: '5px', boxShadow: '10px 11px 8px -5px #414141', display: 'flex', height: '250px', margin: '30px', padding: '30px 80px 80px 80px', width: '300px' }}>
         <Card.Body>
           <Card.Title style={{ alignItems: 'center', display: 'flex', fontSize: '30px', fontFamily: 'cursive', justifyContent: 'center', textTransform: 'capitalize' }}>{plan.id}</Card.Title>
           {plan.id === 'basic' ? <Card.Img variant="top" style={{ alignItems: 'center', display: 'flex', justifyContent: 'center', height: '90px', width: '150px' }} src={'https://imgur.com/k085ej4.png'} /> : null}
@@ -65,16 +65,14 @@ class LandingPage extends Component {
     ))
 
     return (
-      <div style={{ alignContent: 'center', display: 'flex', flexDirection: 'column' }}>
+      <div style={{ alignContent: 'center', display: 'flex', flexDirection: 'column'}}>
         <div className='plans-display' style={{ alignItems: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
           <h2 style={{ fontFamily: 'cursive', fontSize: '60px', marginBottom: '0px'}}>Pick Your Plan!</h2>
           <p style={{ marginTop: '0px' }}>(click on a plan to see full details)</p>
         </div>
-        <ul>
           <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', whiteSpace: 'pre-wrap' }}>
             {productJsx}
           </div>
-        </ul>
       </div>
     )
   }
