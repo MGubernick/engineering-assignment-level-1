@@ -1,14 +1,14 @@
-import React from 'react'
-import { Layout } from '../components/Layout'
-// import { Explainer } from "../components/Explainer"
-import Landing from '../components/Landing/landing'
+import React, { Fragment } from 'react'
+// import { Layout } from '../components/Layout'
+import { Explainer } from "../components/Explainer"
+// import Landing from '../components/Landing/landing'
 
 function Home() {
   return (
-    <Layout>
-      {/* <Explainer /> */}
-      <Landing />
-    </Layout>
+    <Fragment>
+      <Explainer />
+      {/* <Landing /> */}
+    </Fragment>
   )
 }
 

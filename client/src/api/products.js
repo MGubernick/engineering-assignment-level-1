@@ -5,7 +5,7 @@ import axios from 'axios'
 const apiUrl = 'http://localhost:5000'
 
 // Index Products
-export const indexProducts = ()  => {
+export const indexProducts = async ()  => {
   return axios({
     url: apiUrl + '/api/v1/products',
     method: 'GET'
@@ -13,7 +13,7 @@ export const indexProducts = ()  => {
 }
 
 // Show One Product
-export const showProduct = (id) => {
+export const showProduct = async (id) => {
   return axios({
     url: apiUrl + '/api/v1/product/' + id,
     method: 'GET'

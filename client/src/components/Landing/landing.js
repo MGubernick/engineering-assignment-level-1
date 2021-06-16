@@ -39,7 +39,11 @@ class LandingPage extends Component {
     // console.log('this is products at render:', products)
 
     if (!products) {
-      productJsx = 'Loading...'
+      return (
+        <div>
+          <h2 style={{ alignItems: 'center', display: 'flex', justifyContent: 'center' }}>Loading...</h2>
+        </div>
+      )
     }
 
     productJsx = products.map(plan => (
@@ -48,7 +52,7 @@ class LandingPage extends Component {
           this.handleSearchOne(plan.id, event)
         }}
         border="primary"
-        className='index-bg style-card' style={{ alignItems: 'center', backgroundColor: '#f6f6f6', border: '1px solid black', borderRadius: '5px', display: 'flex', height: '250px', margin: '30px', padding: '80px', width: '300px' }}>
+        className='index-bg style-card' style={{ alignItems: 'center', backgroundColor: '#f6f6f6', border: '1px solid black', borderRadius: '5px', boxShadow: '10px 11px 8px -5px #414141', display: 'flex', height: '250px', margin: '30px', padding: '80px', width: '300px' }}>
         <Card.Body>
           <Card.Title style={{ alignItems: 'center', display: 'flex', fontSize: '30px', fontFamily: 'cursive', justifyContent: 'center', textTransform: 'capitalize' }}>{plan.id}</Card.Title>
           {plan.id === 'basic' ? <Card.Img variant="top" style={{ alignItems: 'center', display: 'flex', justifyContent: 'center', height: '90px', width: '150px' }} src={'https://imgur.com/k085ej4.png'} /> : null}
