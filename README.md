@@ -1,4 +1,4 @@
-# Coastline Engineernig Level 1 Assignment
+# Coastline Engineering Level 1 Assignment
 
 Welcome to our Level 1 engineer coding assignment. Most of the details of what is expected (and not expected) can be found once you start the actual application. So this README is mostly about how to do that.
 
